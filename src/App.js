@@ -49,21 +49,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          Add an item..
+        <div style={{ marginTop: 250, marginLeft: 700, marginRight: 800 }}>
+          <p style={{ marginLeft: 80 }}>Add Item</p>
           <br />
           <input
+            className=" form-control"
             type="text"
             placeholder="Type an item"
             value={this.state.newItem}
             onChange={e => this.updateInput("newItem", e.target.value)}
           />
+
+          <br />
           <button onClick={() => this.addItem()}>Add</button>
+          <br />
           <ul>
             {this.state.list.map(item => {
               return (
                 <li key={item.id}>
                   {item.value}
+
                   <button onClick={() => this.deleteItem(item.id)}>
                     Delete
                   </button>
